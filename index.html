@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Clocks</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <div
+      class="container mx-auto px-4 py-6 h-screen flex flex-col overflow-hidden"
+    >
+      <header class="text-center mb-6">
+        <h1
+          class="text-3xl md:text-5xl font-thin text-white mb-2 tracking-wide"
+        >
+          <i class="fas fa-globe-americas mr-2 text-blue-400"></i>
+          World Clocks
+        </h1>
+        <p class="text-gray-300 text-base">Stay connected across time zones</p>
+      </header>
+
+      <div
+        class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr"
+        id="clocks-container"
+      >
+        <!-- Cities will be dynamically loaded from cities.js -->
+      </div>
+
+      <footer class="text-center mt-4 text-gray-400 text-xs">
+        <p>Last updated: <span id="last-updated">--</span></p>
+      </footer>
+    </div>
+
+    <script src="cities.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
