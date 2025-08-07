@@ -1,11 +1,26 @@
 # 🌍 World Clocks
 
-A beautiful, responsive web application that displays real-time clocks for multiple time zones around the world. Built with vanilla JavaScript, HTML5, and CSS3 with Tailwind CSS for styling.
+A beautiful, responsive web application that displays real-time clocks for multiple time zones### Other Operations
+
+````javascript
+// Get all current cities
+const cities = worldClocks.getAllCities();
+
+// Find a specific city
+const paris = worldClocks.findCity('Paris');
+
+// Sort all cities by UTC offset
+worldClocks.sortAllCitiesByUTCOffset();
+
+// Get user's timezone
+const userTz = Utils.getUserTimezone();
+```world. Built with vanilla JavaScript, HTML5, and CSS3 with Tailwind CSS for styling.
 
 ## ✨ Features
 
 - **Real-time Updates**: All clocks update every second with accurate time information
 - **Centralized Configuration**: All cities managed in a single `cities.js` file
+- **UTC Sorting**: Cities automatically sorted by UTC offset for logical time zone order
 - **Multiple Time Zones**: Pre-configured with 7 major cities (Vancouver, Toronto, London, Dammam, Dubai, Kerala, Kuala Lumpur)
 - **Easy City Management**: Add or remove cities by editing one configuration file
 - **Dynamic Addition**: Add or remove cities programmatically at runtime
@@ -18,14 +33,16 @@ A beautiful, responsive web application that displays real-time clocks for multi
 
 ## 🏗️ Project Structure
 
-```
+````
+
 times/
-├── index.html          # Main HTML file with clock container
-├── cities.js          # Centralized city configurations
-├── script.js          # JavaScript functionality and clock logic
-├── styles.css         # Custom CSS with responsive design
-└── README.md          # Project documentation
-```
+├── index.html # Main HTML file with clock container
+├── cities.js # Centralized city configurations
+├── script.js # JavaScript functionality and clock logic
+├── styles.css # Custom CSS with responsive design
+└── README.md # Project documentation
+
+````
 
 ## 🚀 Getting Started
 
@@ -53,7 +70,7 @@ npx serve
 
 # Using PHP
 php -S localhost:8000
-```
+````
 
 Then open `http://localhost:8000` in your browser.
 

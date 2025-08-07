@@ -39,12 +39,61 @@ class WorldClocks {
       return;
     }
 
-    // Load all cities from configuration
-    WORLD_CITIES.forEach((city) => {
+    // Sort cities by UTC offset before loading
+    const sortedCities = this.sortCitiesByUTCOffset([...WORLD_CITIES]);
+
+    // Load all cities from configuration in UTC offset order
+    sortedCities.forEach((city) => {
       this.addTimezone(city.timezone, city.city, city.country, city.flag);
     });
 
-    console.log(`Loaded ${WORLD_CITIES.length} cities from configuration`);
+    console.log(
+      `Loaded ${sortedCities.length} cities from configuration (sorted by UTC offset)`
+    );
+  }
+
+  sortCitiesByUTCOffset(cities) {
+    const now = new Date();
+
+    // Get UTC offset for each city and sort
+    const citiesWithOffset = cities.map((city) => {
+      const offset = this.getUTCOffsetMinutes(now, city.timezone);
+      return {
+        ...city,
+        offsetMinutes: offset,
+      };
+    });
+
+    // Sort by UTC offset (ascending: UTC-12 to UTC+14)
+    citiesWithOffset.sort((a, b) => a.offsetMinutes - b.offsetMinutes);
+
+    // Remove the temporary offsetMinutes property
+    return citiesWithOffset.map((city) => {
+      const { offsetMinutes, ...cityWithoutOffset } = city;
+      return cityWithoutOffset;
+    });
+  }
+
+  getUTCOffsetMinutes(date, timezone) {
+    try {
+      // Get the time in UTC and in the specific timezone
+      const utcTime = new Date(
+        date.toLocaleString("en-US", { timeZone: "UTC" })
+      );
+      const localTime = new Date(
+        date.toLocaleString("en-US", { timeZone: timezone })
+      );
+
+      // Calculate the difference in minutes
+      const offsetMinutes = Math.round(
+        (localTime.getTime() - utcTime.getTime()) / 60000
+      );
+
+      return offsetMinutes;
+    } catch (error) {
+      console.warn(`Could not get UTC offset for ${timezone}:`, error);
+      return 0; // Default to UTC if there's an error
+    }
   }
 
   updateAllClocks() {
@@ -441,6 +490,29 @@ class WorldClocks {
     console.log(`Cleared ${citiesToRemove.length} dynamic cities`);
   }
 
+  // Sort all current cities by UTC offset
+  sortAllCitiesByUTCOffset() {
+    // Get current cities data
+    const currentCities = this.clockElements.map((clock) => ({
+      timezone: clock.timezone,
+      city: clock.city,
+      country: clock.country,
+      flag: clock.element.querySelector(".flag").textContent,
+    }));
+
+    // Clear current display
+    this.clockElements.forEach((clock) => clock.element.remove());
+    this.clockElements = [];
+
+    // Sort and re-add cities
+    const sortedCities = this.sortCitiesByUTCOffset(currentCities);
+    sortedCities.forEach((city) => {
+      this.addTimezone(city.timezone, city.city, city.country, city.flag);
+    });
+
+    console.log("Cities resorted by UTC offset");
+  }
+
   // Cleanup method
   destroy() {
     this.stopClock();
@@ -523,7 +595,15 @@ USAGE EXAMPLES:
 6. Clear all dynamically added cities:
    worldClocks.clearDynamicCities();
 
-7. To permanently add cities, edit the WORLD_CITIES array in cities.js file.
+7. Sort all cities by UTC offset:
+   worldClocks.sortAllCitiesByUTCOffset();
+
+8. To permanently add cities, edit the WORLD_CITIES array in cities.js file.
+
+AUTOMATIC FEATURES:
+- Cities are automatically sorted by UTC offset on initial load
+- Grid automatically adjusts based on screen size and number of cities
+- Real-time updates with performance optimizations
 
 The grid automatically adjusts based on screen size:
 - Mobile (< 768px): 1 column
