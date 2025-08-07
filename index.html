@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World Clocks</title>
+
+    <!-- External dependencies -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
@@ -12,7 +14,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="src/css/main.css" />
   </head>
   <body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
     <div
@@ -40,7 +44,35 @@
       </footer>
     </div>
 
+    <!-- Configuration -->
+    <script src="config/settings.js"></script>
     <script src="cities.js"></script>
-    <script src="script.js"></script>
+
+    <!-- Core modules -->
+    <script src="src/js/TimeZoneUtils.js"></script>
+    <script src="src/js/WorldClock.js"></script>
+    <script src="src/js/GridManager.js"></script>
+    <script src="src/js/EventManager.js"></script>
+    <script src="src/js/WorldClocksApp.js"></script>
+
+    <!-- Application initialization -->
+    <script>
+      // Initialize the application when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("World Clocks App Starting...");
+
+        // Create global instance
+        window.worldClocks = new WorldClocksApp();
+
+        console.log("World Clocks App Started Successfully");
+      });
+
+      // Handle unload to cleanup
+      window.addEventListener("beforeunload", () => {
+        if (window.worldClocks) {
+          window.worldClocks.destroy();
+        }
+      });
+    </script>
   </body>
 </html>

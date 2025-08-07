@@ -13,12 +13,12 @@
 
 const WORLD_CITIES = [
   // North America
-//   {
-//     timezone: "America/Vancouver",
-//     city: "Vancouver",
-//     country: "Canada",
-//     flag: "🇨🇦",
-//   },
+  //   {
+  //     timezone: "America/Vancouver",
+  //     city: "Vancouver",
+  //     country: "Canada",
+  //     flag: "🇨🇦",
+  //   },
   {
     timezone: "America/Toronto",
     city: "Toronto",

@@ -1,0 +1,98 @@
+/* src/css/grid.css - Grid layout and responsive design */
+
+/* Grid container */
+.flex-1.grid {
+  height: calc(100vh - 180px) !important; /* Account for header and footer */
+  overflow: hidden !important;
+  display: grid !important;
+  align-content: stretch !important;
+}
+
+/* Dynamic grid columns based on card count */
+.flex-1.grid[data-card-count="1"] {
+  grid-template-columns: 1fr;
+}
+.flex-1.grid[data-card-count="2"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+.flex-1.grid[data-card-count="3"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+.flex-1.grid[data-card-count="4"] {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.flex-1.grid[data-card-count="5"] {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.flex-1.grid[data-card-count="6"] {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.flex-1.grid[data-card-count="7"] {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.flex-1.grid[data-card-count="8"] {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.flex-1.grid[data-card-count="9"] {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* For 10+ cards, create a scrollable grid but maintain aspect ratios */
+.flex-1.grid:not([data-card-count="1"]):not([data-card-count="2"]):not(
+    [data-card-count="3"]
+  ):not([data-card-count="4"]):not([data-card-count="5"]):not(
+    [data-card-count="6"]
+  ):not([data-card-count="7"]):not([data-card-count="8"]):not(
+    [data-card-count="9"]
+  ) {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .flex-1.grid[data-card-count="7"],
+  .flex-1.grid[data-card-count="8"],
+  .flex-1.grid[data-card-count="9"] {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-1.grid {
+    height: calc(100vh - 160px) !important;
+  }
+
+  .flex-1.grid[data-card-count="3"],
+  .flex-1.grid[data-card-count="4"],
+  .flex-1.grid[data-card-count="5"],
+  .flex-1.grid[data-card-count="6"] {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .flex-1.grid[data-card-count="7"],
+  .flex-1.grid[data-card-count="8"],
+  .flex-1.grid[data-card-count="9"] {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .flex-1.grid {
+    height: calc(100vh - 140px) !important;
+  }
+
+  .flex-1.grid:not([data-card-count="1"]) {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: minmax(0, 1fr) !important;
+  }
+}

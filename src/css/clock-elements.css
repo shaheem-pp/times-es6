@@ -1,0 +1,123 @@
+/* src/css/clock-elements.css - Individual clock element styles */
+
+/* Location info */
+.location-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  gap: 10px;
+  width: 100%;
+}
+
+.flag {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  flex-shrink: 0;
+}
+
+.location-text {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.city {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.country {
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  color: #cbd5e1;
+  margin: 0;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Time display styling */
+.time-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0;
+  flex: 1;
+  align-self: center;
+  min-height: 60px;
+}
+
+.time {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 200;
+  color: white;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+
+.period {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #94a3b8;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+/* Date and timezone styling */
+.date {
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  color: #cbd5e1;
+  text-align: center;
+  margin-bottom: 6px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.timezone-offset {
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+  color: #94a3b8;
+  text-align: center;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .time {
+    font-size: 2rem;
+  }
+
+  .city {
+    font-size: 1.3rem;
+  }
+
+  .flag {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .time {
+    font-size: 1.8rem;
+  }
+
+  .city {
+    font-size: 1.2rem;
+  }
+
+  .flag {
+    font-size: 1.8rem;
+  }
+}

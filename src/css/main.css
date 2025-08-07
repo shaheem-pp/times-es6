@@ -1,0 +1,12 @@
+/* src/css/main.css - Main stylesheet that imports all components */
+
+/* Base styles */
+@import "./base.css";
+@import "./background.css";
+
+/* Component styles */
+@import "./components/header.css";
+@import "./components/clock-card.css";
+@import "./grid.css";
+@import "./clock-elements.css";
+@import "./animations.css";

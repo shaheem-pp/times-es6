@@ -1,0 +1,135 @@
+/* src/css/components/clock-card.css - Clock card component styles */
+
+/* Clock card base styling */
+.clock-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  cursor: pointer;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.clock-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 8px;
+}
+
+/* Staggered animation delays */
+.clock-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.clock-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.clock-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.clock-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.clock-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.clock-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.clock-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card hover effects */
+.clock-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.clock-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.clock-card:hover::before {
+  opacity: 1;
+}
+
+/* Day/Night indicators */
+.clock-card.night-time {
+  background: rgba(30, 41, 59, 0.3);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.clock-card.day-time {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.clock-card.night-time .time {
+  color: #cbd5e1;
+}
+
+.clock-card.day-time .time {
+  color: #ffffff;
+}
+
+/* Enhanced hover effects for different states */
+.clock-card.night-time:hover {
+  background: rgba(30, 41, 59, 0.5);
+  box-shadow: 0 25px 50px rgba(30, 41, 59, 0.4);
+}
+
+.clock-card.day-time:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clock-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-card {
+    padding: 16px;
+  }
+}
