@@ -1,147 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>World Clocks - Real-time Timezone Display</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<title>World Clocks - Real-time Timezone Display</title>
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="A responsive real-time world clock application displaying multiple timezones simultaneously. Built with vanilla JavaScript, HTML5, and CSS3."
-    />
-    <meta
-      name="keywords"
-      content="world clock, timezone, time zones, real-time clock, multiple timezones, web application, JavaScript"
-    />
-    <meta name="author" content="Shaheem PP" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
+		<!-- SEO Meta Tags -->
+		<meta
+			name="description"
+			content="A responsive real-time world clock application displaying multiple timezones simultaneously. Built with vanilla JavaScript, HTML5, and CSS3."
+		/>
+		<meta
+			name="keywords"
+			content="world clock, timezone, time zones, real-time clock, multiple timezones, web application, JavaScript"
+		/>
+		<meta name="author" content="Shaheem PP" />
+		<meta name="robots" content="index, follow" />
+		<meta name="language" content="English" />
+		<meta name="revisit-after" content="7 days" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://shaheem-pp.github.io/times-es6/" />
-    <meta
-      property="og:title"
-      content="World Clocks - Real-time Timezone Display"
-    />
-    <meta
-      property="og:description"
-      content="A responsive real-time world clock application displaying multiple timezones simultaneously. Built with vanilla JavaScript, HTML5, and CSS3."
-    />
-    <meta
-      property="og:image"
-      content="https://shaheem-pp.github.io/times-es6/cover.png"
-    />
-    <meta property="og:image:width" content="2880" />
-    <meta property="og:image:height" content="1800" />
-    <meta property="og:site_name" content="World Clocks" />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://shaheem-pp.github.io/times-es6/" />
+		<meta property="og:title" content="World Clocks - Real-time Timezone Display" />
+		<meta
+			property="og:description"
+			content="A responsive real-time world clock application displaying multiple timezones simultaneously. Built with vanilla JavaScript, HTML5, and CSS3."
+		/>
+		<meta property="og:image" content="https://shaheem-pp.github.io/times-es6/cover.png" />
+		<meta property="og:image:width" content="2880" />
+		<meta property="og:image:height" content="1800" />
+		<meta property="og:site_name" content="World Clocks" />
 
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://shaheem-pp.github.io/times-es6/"
-    />
-    <meta
-      property="twitter:title"
-      content="World Clocks - Real-time Timezone Display"
-    />
-    <meta
-      property="twitter:description"
-      content="A responsive real-time world clock application displaying multiple timezones simultaneously. Built with vanilla JavaScript, HTML5, and CSS3."
-    />
-    <meta
-      property="twitter:image"
-      content="https://shaheem-pp.github.io/times-es6/cover.png"
-    />
-    <meta property="twitter:creator" content="@shaheem_pp" />
+		<!-- Twitter Card -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://shaheem-pp.github.io/times-es6/" />
+		<meta property="twitter:title" content="World Clocks - Real-time Timezone Display" />
+		<meta
+			property="twitter:description"
+			content="A responsive real-time world clock application displaying multiple timezones simultaneously. Built with vanilla JavaScript, HTML5, and CSS3."
+		/>
+		<meta property="twitter:image" content="https://shaheem-pp.github.io/times-es6/cover.png" />
+		<meta property="twitter:creator" content="@shaheem_pp" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#1e3a8a" />
-    <meta name="msapplication-TileColor" content="#1e3a8a" />
+		<!-- PWA Manifest -->
+		<link rel="manifest" href="/manifest.json" />
 
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- Theme Color -->
+		<meta name="theme-color" content="#1e3a8a" />
+		<meta name="msapplication-TileColor" content="#1e3a8a" />
 
-    <!-- External dependencies -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+		<!-- PWA Meta Tags -->
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="World Clocks" />
+		<meta name="application-name" content="World Clocks" />
+		<meta name="msapplication-starturl" content="/" />
 
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="src/css/main.css" />
-  </head>
-  <body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
-    <div
-      class="container mx-auto px-4 py-6 h-screen flex flex-col overflow-hidden"
-    >
-      <header class="text-center mb-6">
-        <h1
-          class="text-3xl md:text-5xl font-thin text-white mb-2 tracking-wide"
-        >
-          <i class="fas fa-globe-americas mr-2 text-blue-400"></i>
-          World Clocks
-        </h1>
-        <p class="text-gray-300 text-base">Stay connected across time zones</p>
-      </header>
+		<!-- Preconnect for Performance -->
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-      <div
-        class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr"
-        id="clocks-container"
-      >
-        <!-- Cities will be dynamically loaded from cities.js -->
-      </div>
+		<!-- External dependencies -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			rel="stylesheet"
+		/>
 
-      <footer class="text-center mt-4 text-gray-400 text-xs">
-        <p>Last updated: <span id="last-updated">--</span></p>
-      </footer>
-    </div>
+		<!-- Custom styles -->
+		<link rel="stylesheet" href="src/css/main.css" />
+	</head>
+	<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+		<div class="container mx-auto px-4 py-6 h-screen flex flex-col overflow-hidden">
+			<header class="text-center mb-6">
+				<h1 class="text-3xl md:text-5xl font-thin text-white mb-2 tracking-wide">
+					<i class="fas fa-globe-americas mr-2 text-blue-400"></i>
+					World Clocks
+				</h1>
+				<p class="text-gray-300 text-base">Stay connected across time zones</p>
+			</header>
 
-    <!-- Configuration -->
-    <script src="config/settings.js"></script>
-    <script src="cities.js"></script>
+			<div
+				class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr"
+				id="clocks-container"
+			>
+				<!-- Cities will be dynamically loaded from cities.js -->
+			</div>
 
-    <!-- Core modules -->
-    <script src="src/js/TimeZoneUtils.js"></script>
-    <script src="src/js/WorldClock.js"></script>
-    <script src="src/js/GridManager.js"></script>
-    <script src="src/js/EventManager.js"></script>
-    <script src="src/js/WorldClocksApp.js"></script>
+			<footer class="text-center mt-4 text-gray-400 text-xs">
+				<p>Last updated: <span id="last-updated">--</span></p>
+			</footer>
+		</div>
 
-    <!-- Application initialization -->
-    <script>
-      // Initialize the application when DOM is loaded
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("World Clocks App Starting...");
+		<!-- Configuration -->
+		<script src="config/settings.js"></script>
+		<script src="cities.js"></script>
 
-        // Create global instance
-        window.worldClocks = new WorldClocksApp();
+		<!-- Core modules -->
+		<script src="src/js/PWAManager.js"></script>
+		<script src="src/js/TimeZoneUtils.js"></script>
+		<script src="src/js/WorldClock.js"></script>
+		<script src="src/js/GridManager.js"></script>
+		<script src="src/js/EventManager.js"></script>
+		<script src="src/js/WorldClocksApp.js"></script>
 
-        console.log("World Clocks App Started Successfully");
-      });
+		<!-- Application initialization -->
+		<script>
+			// Initialize the application when DOM is loaded
+			document.addEventListener('DOMContentLoaded', () => {
+				console.log('World Clocks App Starting...');
 
-      // Handle unload to cleanup
-      window.addEventListener("beforeunload", () => {
-        if (window.worldClocks) {
-          window.worldClocks.destroy();
-        }
-      });
-    </script>
-  </body>
+				// Initialize PWA Manager
+				window.pwaManager = new PWAManager();
+
+				// Create global instance
+				window.worldClocks = new WorldClocksApp();
+
+				console.log('World Clocks App Started Successfully');
+			});
+
+			// Handle unload to cleanup
+			window.addEventListener('beforeunload', () => {
+				if (window.worldClocks) {
+					window.worldClocks.destroy();
+				}
+			});
+		</script>
+	</body>
 </html>
