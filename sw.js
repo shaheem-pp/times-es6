@@ -11,6 +11,7 @@ const STATIC_ASSETS = [
 	'./cities.js',
 	'./config/settings.js',
 	'./src/js/PWAManager.js',
+	'./src/js/WakeLockManager.js',
 	'./src/js/TimeZoneUtils.js',
 	'./src/js/WorldClock.js',
 	'./src/js/GridManager.js',
@@ -24,6 +25,7 @@ const STATIC_ASSETS = [
 	'./src/css/background.css',
 	'./src/css/components/clock-card.css',
 	'./src/css/components/header.css',
+	'./src/css/components/wake-lock.css',
 	'./cover.png',
 ];
 

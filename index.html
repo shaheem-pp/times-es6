@@ -110,12 +110,12 @@
 
 		<!-- Core modules -->
 		<script src="src/js/PWAManager.js"></script>
+		<script src="src/js/WakeLockManager.js"></script>
 		<script src="src/js/TimeZoneUtils.js"></script>
 		<script src="src/js/WorldClock.js"></script>
 		<script src="src/js/GridManager.js"></script>
 		<script src="src/js/EventManager.js"></script>
 		<script src="src/js/WorldClocksApp.js"></script>
-
 		<!-- Application initialization -->
 		<script>
 			// Initialize the application when DOM is loaded
@@ -125,8 +125,16 @@
 				// Initialize PWA Manager
 				window.pwaManager = new PWAManager();
 
+				// Initialize Wake Lock Manager
+				window.wakeLockManager = new WakeLockManager();
+
 				// Create global instance
 				window.worldClocks = new WorldClocksApp();
+
+				// Add wake lock toggle to UI
+				setTimeout(() => {
+					window.wakeLockManager.createWakeLockToggle();
+				}, 1000);
 
 				console.log('World Clocks App Started Successfully');
 			});
@@ -135,6 +143,9 @@
 			window.addEventListener('beforeunload', () => {
 				if (window.worldClocks) {
 					window.worldClocks.destroy();
+				}
+				if (window.wakeLockManager) {
+					window.wakeLockManager.disableWakeLock();
 				}
 			});
 		</script>
