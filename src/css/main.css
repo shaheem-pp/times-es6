@@ -11,3 +11,6 @@
 @import './grid.css';
 @import './clock-elements.css';
 @import './animations.css';
+
+/* Responsive design */
+@import './responsive.css';

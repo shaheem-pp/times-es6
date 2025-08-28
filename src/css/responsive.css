@@ -1,0 +1,121 @@
+/* src/css/responsive.css - Mobile-specific responsive adjustments */
+
+/* Ensure all information is always visible on mobile */
+@media (max-width: 480px) {
+	.location-info {
+		margin-bottom: 6px;
+		gap: 6px;
+	}
+
+	.location-text {
+		text-align: left;
+	}
+
+	.city {
+		font-size: 0.9rem !important;
+		line-height: 1.1;
+	}
+
+	.country {
+		font-size: 0.7rem !important;
+		line-height: 1.1;
+	}
+
+	.time-display {
+		margin: 6px 0;
+		min-height: 40px;
+	}
+
+	.time {
+		font-size: 1.6rem !important;
+	}
+
+	.period {
+		font-size: 0.8rem !important;
+	}
+
+	.date {
+		font-size: 0.7rem !important;
+		margin-bottom: 3px;
+		/* Use abbreviated date on mobile */
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.timezone-offset {
+		font-size: 0.65rem !important;
+	}
+}
+
+/* Tablet adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+	.location-info {
+		margin-bottom: 8px;
+	}
+
+	.time-display {
+		margin: 8px 0;
+		min-height: 45px;
+	}
+
+	.date {
+		margin-bottom: 4px;
+	}
+}
+
+/* Desktop adjustments for better information hierarchy */
+@media (min-width: 1024px) {
+	.clock-card {
+		min-height: 220px;
+	}
+
+	.location-info {
+		margin-bottom: 10px;
+	}
+
+	.time-display {
+		margin: 10px 0;
+		min-height: 55px;
+	}
+
+	.date {
+		margin-bottom: 6px;
+	}
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1440px) {
+	.clock-card {
+		min-height: 240px;
+		padding: 20px;
+	}
+
+	.flag {
+		font-size: 2rem;
+	}
+
+	.city {
+		font-size: 1.2rem !important;
+	}
+
+	.country {
+		font-size: 0.85rem !important;
+	}
+
+	.time {
+		font-size: 2.2rem !important;
+	}
+
+	.period {
+		font-size: 1rem !important;
+	}
+
+	.date {
+		font-size: 0.9rem !important;
+	}
+
+	.timezone-offset {
+		font-size: 0.8rem !important;
+	}
+}
