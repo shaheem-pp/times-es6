@@ -1,0 +1,126 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for globe -->
+    <radialGradient id="globeGradient" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="70%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+    
+    <!-- Gradient for clock face -->
+    <radialGradient id="clockGradient" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="80%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with subtle gradient -->
+  <circle cx="256" cy="256" r="240" fill="#1e3a8a" opacity="0.1"/>
+  
+  <!-- Main globe -->
+  <circle cx="256" cy="256" r="180" fill="url(#globeGradient)" filter="url(#shadow)"/>
+  
+  <!-- Globe continents (simplified world map) -->
+  <g fill="#1e3a8a" opacity="0.4">
+    <!-- North America -->
+    <path d="M 180 200 Q 190 190 200 200 Q 210 195 220 205 Q 215 220 205 225 Q 190 220 180 200 Z"/>
+    
+    <!-- South America -->
+    <path d="M 200 280 Q 205 270 210 280 Q 215 290 210 300 Q 205 310 200 300 Q 195 290 200 280 Z"/>
+    
+    <!-- Europe/Africa -->
+    <path d="M 260 180 Q 280 175 290 190 Q 295 210 285 230 Q 280 250 270 270 Q 265 290 260 310 Q 255 300 260 280 Q 265 260 260 240 Q 255 220 260 200 Q 258 190 260 180 Z"/>
+    
+    <!-- Asia -->
+    <path d="M 300 170 Q 320 165 340 175 Q 350 185 345 200 Q 340 215 330 225 Q 320 235 310 225 Q 305 210 300 195 Q 298 182 300 170 Z"/>
+    
+    <!-- Australia -->
+    <path d="M 320 280 Q 330 275 340 285 Q 335 295 325 290 Q 320 285 320 280 Z"/>
+  </g>
+  
+  <!-- Globe latitude/longitude lines -->
+  <g stroke="#1e3a8a" stroke-width="1" fill="none" opacity="0.3">
+    <!-- Equator -->
+    <ellipse cx="256" cy="256" rx="180" ry="60"/>
+    <!-- Tropics -->
+    <ellipse cx="256" cy="256" rx="160" ry="40"/>
+    <ellipse cx="256" cy="256" rx="160" ry="80"/>
+    <!-- Meridians -->
+    <ellipse cx="256" cy="256" rx="90" ry="180"/>
+    <ellipse cx="256" cy="256" rx="135" ry="180"/>
+    <ellipse cx="256" cy="256" rx="45" ry="180"/>
+  </g>
+  
+  <!-- Clock face (smaller, positioned in upper right of globe) -->
+  <circle cx="320" cy="180" r="65" fill="url(#clockGradient)" stroke="#1e3a8a" stroke-width="3" filter="url(#shadow)"/>
+  
+  <!-- Clock hour markers -->
+  <g stroke="#1e3a8a" stroke-width="2" fill="#1e3a8a">
+    <!-- 12 o'clock -->
+    <line x1="320" y1="125" x2="320" y2="135"/>
+    <!-- 3 o'clock -->
+    <line x1="375" y1="180" x2="365" y2="180"/>
+    <!-- 6 o'clock -->
+    <line x1="320" y1="235" x2="320" y2="225"/>
+    <!-- 9 o'clock -->
+    <line x1="265" y1="180" x2="275" y2="180"/>
+    
+    <!-- Additional hour markers (smaller) -->
+    <circle cx="340" cy="140" r="1.5"/>
+    <circle cx="350" cy="160" r="1.5"/>
+    <circle cx="350" cy="200" r="1.5"/>
+    <circle cx="340" cy="220" r="1.5"/>
+    <circle cx="300" cy="220" r="1.5"/>
+    <circle cx="290" cy="200" r="1.5"/>
+    <circle cx="290" cy="160" r="1.5"/>
+    <circle cx="300" cy="140" r="1.5"/>
+  </g>
+  
+  <!-- Clock hands -->
+  <g stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" fill="none">
+    <!-- Hour hand (pointing to 3) -->
+    <line x1="320" y1="180" x2="345" y2="180"/>
+    <!-- Minute hand (pointing to 12) -->
+    <line x1="320" y1="180" x2="320" y2="145"/>
+  </g>
+  
+  <!-- Clock center dot -->
+  <circle cx="320" cy="180" r="4" fill="#1e3a8a"/>
+  
+  <!-- Timezone indicator arrows around the globe -->
+  <g fill="#60a5fa" filter="url(#glow)">
+    <!-- Arrow pointing to different time zones -->
+    <polygon points="150,120 160,115 160,125" opacity="0.8"/>
+    <polygon points="380,140 390,135 390,145" opacity="0.8"/>
+    <polygon points="140,320 150,315 150,325" opacity="0.8"/>
+    <polygon points="370,340 380,335 380,345" opacity="0.8"/>
+  </g>
+  
+  <!-- Subtle highlight on globe -->
+  <ellipse cx="220" cy="200" rx="40" ry="30" fill="#ffffff" opacity="0.2"/>
+  
+  <!-- Small world clock symbols -->
+  <g fill="#3b82f6" opacity="0.6">
+    <!-- Digital time display representation -->
+    <rect x="180" y="380" width="80" height="20" rx="4" fill="#1e3a8a"/>
+    <rect x="185" y="383" width="70" height="14" rx="2" fill="#60a5fa"/>
+    
+    <rect x="280" y="380" width="80" height="20" rx="4" fill="#1e3a8a"/>
+    <rect x="285" y="383" width="70" height="14" rx="2" fill="#60a5fa"/>
+  </g>
+</svg>

@@ -2,12 +2,12 @@
 	"name": "World Clocks - Real-time Timezone Display",
 	"short_name": "World Clocks",
 	"description": "A responsive real-time world clock application displaying multiple timezones simultaneously",
-	"start_url": "/",
+	"start_url": "./",
 	"display": "standalone",
 	"background_color": "#1e3a8a",
 	"theme_color": "#1e3a8a",
 	"orientation": "portrait-primary",
-	"scope": "/",
+	"scope": "./",
 	"lang": "en",
 	"categories": ["productivity", "utilities"],
 	"icons": [
@@ -65,7 +65,7 @@
 			"name": "View All Timezones",
 			"short_name": "All Zones",
 			"description": "View all configured timezone clocks",
-			"url": "/",
+			"url": "./",
 			"icons": [
 				{
 					"src": "icons/icon-192x192.png",

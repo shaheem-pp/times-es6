@@ -4,27 +4,27 @@ const DYNAMIC_CACHE_NAME = 'world-clocks-dynamic-v1.0.0';
 
 // Assets to cache for offline use
 const STATIC_ASSETS = [
-	'/',
-	'/index.html',
-	'/manifest.json',
-	'/offline.html',
-	'/cities.js',
-	'/config/settings.js',
-	'/src/js/PWAManager.js',
-	'/src/js/TimeZoneUtils.js',
-	'/src/js/WorldClock.js',
-	'/src/js/GridManager.js',
-	'/src/js/EventManager.js',
-	'/src/js/WorldClocksApp.js',
-	'/src/css/main.css',
-	'/src/css/base.css',
-	'/src/css/grid.css',
-	'/src/css/clock-elements.css',
-	'/src/css/animations.css',
-	'/src/css/background.css',
-	'/src/css/components/clock-card.css',
-	'/src/css/components/header.css',
-	'/cover.png',
+	'./',
+	'./index.html',
+	'./manifest.json',
+	'./offline.html',
+	'./cities.js',
+	'./config/settings.js',
+	'./src/js/PWAManager.js',
+	'./src/js/TimeZoneUtils.js',
+	'./src/js/WorldClock.js',
+	'./src/js/GridManager.js',
+	'./src/js/EventManager.js',
+	'./src/js/WorldClocksApp.js',
+	'./src/css/main.css',
+	'./src/css/base.css',
+	'./src/css/grid.css',
+	'./src/css/clock-elements.css',
+	'./src/css/animations.css',
+	'./src/css/background.css',
+	'./src/css/components/clock-card.css',
+	'./src/css/components/header.css',
+	'./cover.png',
 ];
 
 // External CDN assets to cache
@@ -148,13 +148,13 @@ self.addEventListener('fetch', event => {
 
 				// If it's a navigation request and we can't serve it, show offline page
 				if (event.request.mode === 'navigate') {
-					const offlineResponse = await caches.match('/offline.html');
+					const offlineResponse = await caches.match('./offline.html');
 					if (offlineResponse) {
 						return offlineResponse;
 					}
 
 					// Fallback to main page if offline.html is not available
-					const indexResponse = await caches.match('/');
+					const indexResponse = await caches.match('./');
 					if (indexResponse) {
 						return indexResponse;
 					}
@@ -199,8 +199,8 @@ self.addEventListener('push', event => {
 
 	const options = {
 		body: event.data ? event.data.text() : 'World Clocks update available',
-		icon: '/icons/icon-192x192.png',
-		badge: '/icons/icon-72x72.png',
+		icon: './icons/icon-192x192.png',
+		badge: './icons/icon-72x72.png',
 		vibrate: [100, 50, 100],
 		data: {
 			dateOfArrival: Date.now(),
@@ -210,12 +210,12 @@ self.addEventListener('push', event => {
 			{
 				action: 'explore',
 				title: 'Open App',
-				icon: '/icons/icon-192x192.png',
+				icon: './icons/icon-192x192.png',
 			},
 			{
 				action: 'close',
 				title: 'Close',
-				icon: '/icons/icon-192x192.png',
+				icon: './icons/icon-192x192.png',
 			},
 		],
 	};
@@ -230,7 +230,7 @@ self.addEventListener('notificationclick', event => {
 	event.notification.close();
 
 	if (event.action === 'explore') {
-		event.waitUntil(clients.openWindow('/'));
+		event.waitUntil(clients.openWindow('./'));
 	}
 });
 
